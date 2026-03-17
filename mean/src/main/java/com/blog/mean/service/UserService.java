@@ -1,7 +1,7 @@
 package com.blog.mean.service;
 
-import com.blog.application.dto.UserDTO;
-import com.blog.application.entity.User;
+import com.blog.mean.dto.UserDTO;
+import com.blog.mean.entity.User;
 import java.util.List;
 
 public interface UserService {
