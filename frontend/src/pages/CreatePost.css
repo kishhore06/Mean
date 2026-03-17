@@ -1,0 +1,63 @@
+.create-post {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.create-post-title {
+  font-size: 28px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.create-post-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.create-post-input {
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.create-post-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.create-post-textarea {
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 16px;
+  resize: vertical;
+  min-height: 200px;
+}
+
+.create-post-textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.create-post-button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.create-post-button:hover:not(:disabled) {
+  background-color: #0060a8;
+}
+
+.create-post-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
