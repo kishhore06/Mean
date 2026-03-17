@@ -1,0 +1,75 @@
+/* Global styles */
+:root {
+  --primary-color: #0079d3;
+  --secondary-color: #ff4500;
+  --text-color: #1c1c1c;
+  --light-text: #787c7e;
+  --background: #ffffff;
+  --light-background: #f6f7f8;
+  --border-color: #edeff1;
+  --success-color: #46d160;
+  --error-color: #ea0027;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+input, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Simple utility classes */
+.simple-card {
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.simple-button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.simple-button:hover {
+  background-color: #0060a8;
+}
+
+.simple-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.simple-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
