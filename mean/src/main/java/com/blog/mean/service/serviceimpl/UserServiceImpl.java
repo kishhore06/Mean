@@ -1,11 +1,11 @@
 package com.blog.mean.service.serviceimpl;
 
-import com.blog.application.dto.UserDTO;
-import com.blog.application.entity.User;
-import com.blog.application.exception.ResourceNotFoundException;
-import com.blog.application.repository.UserRepository;
-import com.blog.application.service.UserService;
-import com.blog.application.util.MapperUtil;
+import com.blog.mean.dto.UserDTO;
+import com.blog.mean.entity.User;
+import com.blog.mean.exception.ResourceNotFoundException;
+import com.blog.mean.repository.UserRepository;
+import com.blog.mean.service.UserService;
+import com.blog.mean.util.MapperUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.List;
