@@ -1,0 +1,11 @@
+.home-title {
+  font-size: 28px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.posts-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
