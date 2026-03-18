@@ -10,6 +10,7 @@ import CreatePost from './pages/CreatePost';
 import EditPost from './pages/EditPost';
 import MyBlogs from './pages/MyBlogs';
 import Profile from './pages/Profile';
+import EditProfile from './pages/EditProfile';
 
 const ProtectedRoute = ({ children }) => {
   const { user, loading } = useAuth();
@@ -60,6 +61,14 @@ function App() {
               element={
                 <ProtectedRoute>
                   <Profile />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/edit-profile" 
+              element={
+                <ProtectedRoute>
+                  <EditProfile />
                 </ProtectedRoute>
               } 
             />
