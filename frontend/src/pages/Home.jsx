@@ -100,9 +100,9 @@ const Home = () => {
               ))}
             </div>
           ) : posts.length > 0 ? (
-            <div className={viewMode === 'grid' ? 'grid grid-cols-1 md:grid-cols-2 gap-10' : 'space-y-4'}>
+            <div className={viewMode === 'grid' ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8' : 'space-y-4'}>
               {Array.isArray(posts) && posts.map(post => (
-                <BlogCard key={post.id} post={post} />
+                <BlogCard key={post.id} post={post} viewMode={viewMode} />
               ))}
             </div>
           ) : (

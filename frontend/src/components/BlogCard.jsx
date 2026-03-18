@@ -9,7 +9,7 @@ import { useAuth } from '../context/AuthContext';
 import api from '../services/api';
 import { toggleBookmark, isPostBookmarked } from '../services/bookmarkService';
 
-const BlogCard = ({ post }) => {
+const BlogCard = ({ post, viewMode = 'list' }) => {
   const { 
     id, title, content, featuredImage, author, 
     createdAt, mainCategory, viewsCount, likesCount 
@@ -57,6 +57,76 @@ const BlogCard = ({ post }) => {
       }
     }
   };
+
+  if (viewMode === 'grid') {
+    return (
+      <article className="flex flex-col bg-white border border-gray-100 rounded-2xl overflow-hidden hover:shadow-xl hover:shadow-black/5 transition-all group relative">
+        <Link to={`/blog/${id}`} className="relative h-48 w-full overflow-hidden shrink-0">
+          <img 
+            src={featuredImage || 'https://images.unsplash.com/photo-1542435503-956c469947f6?auto=format&fit=crop&q=80&w=800'} 
+            alt={title} 
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+          <div className="absolute top-3 right-3 flex space-x-2">
+            <button 
+              onClick={onBookmarkToggle}
+              className={`p-2 rounded-full backdrop-blur-md bg-white/70 shadow-sm transition-colors ${
+                isBookmarked ? 'text-black border-black' : 'text-gray-400 border-transparent'
+              } hover:text-black border hover:bg-white`}
+            >
+              <Bookmark className={`w-4 h-4 ${isBookmarked ? 'fill-black' : ''}`} />
+            </button>
+            
+            <div className="relative">
+              <button 
+                onClick={(e) => { e.preventDefault(); e.stopPropagation(); setShowMenu(!showMenu); }}
+                className="p-2 rounded-full backdrop-blur-md bg-white/70 shadow-sm text-gray-400 hover:text-black transition-colors"
+                onBlur={() => setTimeout(() => setShowMenu(false), 200)}
+              >
+                <MoreHorizontal className="w-4 h-4" />
+              </button>
+              {showMenu && (
+                <div 
+                  className="absolute right-0 top-full mt-2 w-48 bg-white border border-gray-100 rounded-lg shadow-xl py-1 z-20 overflow-hidden"
+                  onMouseDown={(e) => e.preventDefault()}
+                >
+                   <button onMouseDown={handleShare} className="w-full text-left px-4 py-2.5 text-xs text-gray-600 hover:bg-gray-50 flex items-center space-x-2">
+                      <Share2 className="w-4 h-4" /> <span>Share</span>
+                   </button>
+                   <button onMouseDown={onBookmarkToggle} className="w-full text-left px-4 py-2.5 text-xs text-gray-600 hover:bg-gray-50 flex items-center space-x-2">
+                      <Bookmark className={`w-4 h-4 ${isBookmarked ? 'fill-black' : ''}`} /> 
+                      <span>{isBookmarked ? 'Unsaved' : 'Save'}</span>
+                   </button>
+                   {isAuthor && (
+                     <>
+                        <div className="border-t border-gray-50 my-1"></div>
+                        <button onMouseDown={(e) => { e.preventDefault(); e.stopPropagation(); navigate(`/edit/${id}`); }} className="w-full text-left px-4 py-2.5 text-xs text-gray-600 hover:bg-gray-50 flex items-center space-x-2">
+                          <Edit3 className="w-4 h-4" /> <span>Edit</span>
+                        </button>
+                        <button onMouseDown={handleDelete} className="w-full text-left px-4 py-2.5 text-xs text-red-600 hover:bg-red-50 flex items-center space-x-2">
+                          <Trash2 className="w-4 h-4" /> <span>Delete</span>
+                        </button>
+                     </>
+                   )}
+                </div>
+              )}
+            </div>
+          </div>
+        </Link>
+        <div className="p-5 flex flex-col justify-between flex-1">
+          <Link to={`/blog/${id}`} className="block">
+            <h2 className="text-lg font-bold font-sans tracking-tight text-black line-clamp-2 leading-tight group-hover:opacity-75 transition-opacity">
+              {title}
+            </h2>
+          </Link>
+          <div className="mt-4 flex items-center justify-between text-[10px] text-gray-400 font-medium uppercase tracking-widest">
+            <span>{mainCategory?.name}</span>
+            <span>{format(new Date(createdAt), 'MMM d, yy')}</span>
+          </div>
+        </div>
+      </article>
+    );
+  }
 
   return (
     <article className="flex flex-col md:flex-row gap-8 py-10 border-b border-gray-100 last:border-0 group relative">
@@ -112,7 +182,7 @@ const BlogCard = ({ post }) => {
               className={`transition-colors ${isBookmarked ? 'text-black fill-black' : 'hover:text-black'}`}
               title="Save story"
             >
-              <Bookmark className="w-5 h-5" />
+              <Bookmark className={`w-5 h-5 ${isBookmarked ? 'fill-black' : ''}`} />
             </button>
 
             <div className="relative">
