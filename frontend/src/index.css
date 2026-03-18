@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans antialiased text-gray-900 bg-white;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-full font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  .btn-primary {
+    @apply bg-black text-white hover:bg-gray-800 focus:ring-black;
+  }
+  .btn-secondary {
+    @apply bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 focus:ring-gray-200;
+  }
+}
+
+/* Medium-style Typography for blog content */
+.prose {
+  @apply font-serif text-lg leading-relaxed text-gray-800;
+}
+
+.prose h1 { @apply text-4xl font-bold font-sans mb-6 mt-10 text-black; }
+.prose h2 { @apply text-3xl font-bold font-sans mb-4 mt-8 text-black; }
+.prose h3 { @apply text-2xl font-bold font-sans mb-3 mt-6 text-black; }
+.prose p { @apply mb-6; }
+.prose blockquote { @apply border-l-4 border-gray-300 pl-4 italic my-6 text-gray-600; }
+.prose ul { @apply list-disc ml-6 mb-6; }
+.prose ol { @apply list-decimal ml-6 mb-6; }
+
+/* Hyperlink Styles as requested */
+.prose a {
+  @apply text-blue-600 no-underline hover:underline;
+}
+
+.prose img {
+  @apply rounded-lg my-8 w-full h-auto;
+}
+
+.prose pre {
+  @apply bg-gray-100 p-4 rounded-md overflow-x-auto my-6 font-mono text-sm;
+}
