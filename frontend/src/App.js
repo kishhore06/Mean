@@ -8,6 +8,8 @@ import Register from './pages/Register';
 import BlogPost from './pages/BlogPost';
 import CreatePost from './pages/CreatePost';
 import EditPost from './pages/EditPost';
+import MyBlogs from './pages/MyBlogs';
+import Profile from './pages/Profile';
 
 const ProtectedRoute = ({ children }) => {
   const { user, loading } = useAuth();
@@ -42,6 +44,22 @@ function App() {
               element={
                 <ProtectedRoute>
                   <EditPost />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/my-blogs" 
+              element={
+                <ProtectedRoute>
+                  <MyBlogs />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/profile" 
+              element={
+                <ProtectedRoute>
+                  <Profile />
                 </ProtectedRoute>
               } 
             />

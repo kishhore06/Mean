@@ -28,7 +28,7 @@ const Home = () => {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [selectedCategory, selectedMonth, selectedYear]);
 
   const fetchCategories = useCallback(async () => {
     try {
