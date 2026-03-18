@@ -30,7 +30,7 @@ public class Post {
     @Column(nullable = false)
     private String title;
 
-    @Column(columnDefinition = "LONGTEXT", nullable = false)
+    @Column(columnDefinition = "TEXT", nullable = false)
     private String content;
 
     private String featuredImage;
